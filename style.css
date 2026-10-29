@@ -1,0 +1,95 @@
+:root {
+  --bg: #f4f1e6;
+  --bg-soft: #fffdf7;
+  --text: #2f3a2f;
+  --muted: #7d8a74;
+  --accent: #b5622f;
+  --line: #dcd8c4;
+}
+body {
+  margin: 0;
+  padding: 0 1rem 4rem;
+  background: radial-gradient(ellipse at top, #e8efd9 0%, var(--bg) 60%) fixed;
+  color: var(--text);
+  font-family: "Lora", Georgia, "Times New Roman", serif;
+  line-height: 1.8;
+}
+main { max-width: 640px; margin: 0 auto; }
+h1 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  font-size: 3rem;
+  text-align: center;
+  letter-spacing: .04em;
+  margin: 3rem 0 0;
+}
+h1 a { color: inherit; }
+/* the branch the sloth hangs from */
+.branch {
+  height: 6px;
+  margin: 1.5rem 0 0;
+  border-radius: 6px;
+  background: linear-gradient(90deg, transparent, #6b4f3a 15%, #6b4f3a 85%, transparent);
+  position: relative;
+}
+.branch::before, .branch::after {
+  content: "";
+  position: absolute;
+  top: -9px;
+  width: 18px;
+  height: 10px;
+  background: #5f8a5a;
+  border-radius: 0 100% 0 100%;
+  transform: rotate(-20deg);
+}
+.branch::before { left: 22%; }
+.branch::after { right: 25%; transform: rotate(20deg) scaleX(-1); background: #7aa06b; }
+.sloth {
+  display: block;
+  width: 130px;
+  margin: -9px auto 1rem;
+  position: relative;
+  transform-origin: 50% 0;
+  animation: sway 7s ease-in-out infinite;
+}
+@keyframes sway {
+  0%, 100% { transform: rotate(-2.5deg); }
+  50% { transform: rotate(2.5deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sloth { animation: none; }
+}
+h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  color: var(--accent);
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-style: italic;
+  margin: 2.5rem 0 .75rem;
+}
+p { text-align: justify; margin: 0 0 1rem; }
+time { color: var(--muted); font-size: .85rem; letter-spacing: .06em; }
+.card {
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 1.5rem 1.75rem;
+}
+.card time { display: block; margin-bottom: 1.25rem; }
+ul.messages { list-style: none; padding: 0; margin: 0; }
+ul.messages li { border-bottom: 1px solid var(--line); }
+ul.messages a {
+  display: block;
+  padding: .85rem .5rem;
+  color: var(--text);
+  transition: padding-left .6s ease, color .6s ease;
+}
+ul.messages a:hover { text-decoration: none; color: var(--accent); padding-left: 1rem; }
+ul.messages time { display: inline-block; min-width: 9.5rem; }
+.back, footer { margin-top: 2.5rem; font-size: .9rem; text-align: center; color: var(--muted); }
+a { color: var(--accent); text-decoration: none; transition: color .6s ease; }
+a:hover { text-decoration: underline; }
+@media (max-width: 480px) {
+  h1 { font-size: 2.4rem; }
+  ul.messages time { display: block; }
+}
